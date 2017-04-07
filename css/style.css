@@ -13,3 +13,9 @@ body {
 #genelist {
 	margin-bottom: 10px;
 }
+
+#barplot {
+	min-width: 310px;
+	max-width: 800px;
+	margin: 0 auto;
+}

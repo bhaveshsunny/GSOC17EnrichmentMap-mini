@@ -13,6 +13,7 @@
 		<script src="https://unpkg.com/react@15/dist/react.js"></script>
 		<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>	
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="./js/main.js"></script>
 		<script type="text/babel" >
 			class Barplot extends React.Component {
 				constructor(props) {
@@ -169,7 +170,7 @@
 				        		<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 				      		</div>
 				        	<div className="col-lg-4 col-md-4 col-xs-4">
-								<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+								
 				        	</div>
 				      	</div>
 			      	</div>
@@ -206,6 +207,8 @@
 	  </div>
 	</nav>
 	<div id="demo" class="container-fluid">
+
 	</div>
+	<div id="barplot"></div>
 	</body>
 </html>

@@ -1,4 +1,5 @@
-Highcharts.chart('container', {
+$(function(){
+Highcharts.chart('barplot', {
     chart: {
         type: 'bar'
     },
@@ -53,3 +54,6 @@ Highcharts.chart('container', {
         data: [1052, 954, 4250, 740, 38]
     }]
 });
+    
+});
+
