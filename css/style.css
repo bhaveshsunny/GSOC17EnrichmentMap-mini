@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 
 
@@ -14,8 +15,31 @@ body {
 	margin-bottom: 10px;
 }
 
+#demo {
+	float: left;
+}
+
 #barplot {
-	min-width: 310px;
-	max-width: 800px;
+	float: right;
+	height:auto;
 	margin: 0 auto;
+}
+
+#top {
+	height: auto;
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+
+#plots{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+
+.lcol {
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
 }

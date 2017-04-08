@@ -15,20 +15,96 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="./js/main.js"></script>
 		<script type="text/babel" >
-			class Barplot extends React.Component {
-				constructor(props) {
-					super(props);
-				}
 
-				componentDidMount() {
+			function Barplot(props) {
+Highcharts.chart('barplot', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Historic World Population by Region'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+    },
+    xAxis: {
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Population (millions)',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Year 2012',
+        data: [1052, 954, 4250, 740, 38]
+    }],
 
-				}
-
-				componentWillUnmount() {
-
-				}
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    layout: 'horizontal'
+                },
+                yAxis: {
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        y: -5
+                    },
+                    title: {
+                        text: null
+                    }
+                },
+                subtitle: {
+                    text: null
+                },
+                credits: {
+                    enabled: false
+                }
+            }
+        }]
+    }
+});				
+			  return null;
 			}
-
 			var TaskList = React.createClass({
 			    deleteElement:function(){
 			    },
@@ -100,6 +176,7 @@
 
 
 			    addTask:function (e){
+
 			        this.setState({
 			            items: this.state.items.concat([this.state.task]),
 			    
@@ -110,6 +187,9 @@
 			    },
 
 			    render: function(){ 
+
+
+
 			        return(
 			            <div>		            
 			      			<form id="genelist" onSubmit={this.addTask}>
@@ -119,7 +199,8 @@
 							    </input>
 							  </div>
 							  <button type="submit" className="btn btn-default">Add</button>
-					      	</form>			            
+					      	</form>			      
+					      					        		<Barplot />      
 			      			<table className="table table-striped table-bordered">
 								<thead>
 									<tr>
@@ -136,44 +217,10 @@
 			});
 
 			class EMdemo extends React.Component {
-			  constructor(props) {
-			    super(props);
-			    this.state = {date: new Date()};
-			  }
-
-			  componentDidMount() {
-			    this.timerID = setInterval(
-			      () => this.tick(),
-			      1000
-			    );
-			  }
-
-			  componentWillUnmount() {
-			    clearInterval(this.timerID);
-			  }
-
-			  tick() {
-			    this.setState({
-			      date: new Date()
-			    });
-			  }
 
 			  render() {
 			    return (
-			    	<div>
-				    	<div className="row">
-				      		<div className="col-lg-4 col-md-4 col-xs-4">
-								<TaskApp />
-				      		</div>
-				      		<div className="col-lg-4 col-md-4 col-xs-4">
-				      			<h1>Hello, world!</h1>
-				        		<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-				      		</div>
-				        	<div className="col-lg-4 col-md-4 col-xs-4">
-								
-				        	</div>
-				      	</div>
-			      	</div>
+					<TaskApp />
 			    );
 			  }
 			}
@@ -206,9 +253,30 @@
 	    </div>
 	  </div>
 	</nav>
-	<div id="demo" class="container-fluid">
+	<div class="container-fluid">
+				    	<div  id="top">
+				      		<div id="demo" className="col-lg-4 col-md-4 col-xs-4">
+								
+				      		</div>
 
-	</div>
-	<div id="barplot"></div>
+					      	<div class="lcol">
+						      	<div>
+							      	<div className="col-lg-4 col-md-4 col-xs-4">
+						      		</div>
+						        	<div className="col-lg-4 col-md-4 col-xs-4" id ="barplot">
+						        	</div>					      		
+						      	</div>
+						      	<div id="plots">
+						 	      	<div style="margin-right:10px">
+							 	      		<img src="http://placehold.it/300x200&text=Cytoscape+Plot"></img>
+							      		</div>  	
+							      		<div>
+							      			<img src="http://placehold.it/300x200&text=Cluster+Plot"></img>
+							      		</div>  	  					      		
+						      	</div>		
+					      	</div>	
+				      	</div>
+
+	</div>			      	
 	</body>
 </html>
