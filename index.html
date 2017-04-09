@@ -15,20 +15,24 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="./js/main.js"></script>
 		<script type="text/babel" >
-
 			function Barplot(props) {
+				var elements = props.items;
+				var data = []
+				for(var i=0;i<elements.length;i++){
+					data.push(Math.floor((Math.random() * 10) + 0))
+				}
 Highcharts.chart('barplot', {
     chart: {
         type: 'bar'
     },
     title: {
-        text: 'Historic World Population by Region'
+        text: 'Enrichment data for genes'
     },
     subtitle: {
-        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        text: ''
     },
     xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        categories: elements,
         title: {
             text: null
         }
@@ -36,7 +40,7 @@ Highcharts.chart('barplot', {
     yAxis: {
         min: 0,
         title: {
-            text: 'Population (millions)',
+            text: 'Data',
             align: 'high'
         },
         labels: {
@@ -44,7 +48,7 @@ Highcharts.chart('barplot', {
         }
     },
     tooltip: {
-        valueSuffix: ' millions'
+        valueSuffix: ' units'
     },
     plotOptions: {
         bar: {
@@ -68,8 +72,8 @@ Highcharts.chart('barplot', {
         enabled: false
     },
     series: [{
-        name: 'Year 2012',
-        data: [1052, 954, 4250, 740, 38]
+        name: 'Analysis set',
+        data: data
     }],
 
     responsive: {
@@ -102,9 +106,9 @@ Highcharts.chart('barplot', {
             }
         }]
     }
-});				
-			  return null;
-			}
+});	
+return null;
+}
 			var TaskList = React.createClass({
 			    deleteElement:function(){
 			    },
@@ -173,8 +177,6 @@ Highcharts.chart('barplot', {
 			        this.setState({ task: e.target.value });
 			    },
 
-
-
 			    addTask:function (e){
 
 			        this.setState({
@@ -200,7 +202,7 @@ Highcharts.chart('barplot', {
 							  </div>
 							  <button type="submit" className="btn btn-default">Add</button>
 					      	</form>			      
-					      					        		<Barplot />      
+					      	<Barplot items={this.state.items}/>	
 			      			<table className="table table-striped table-bordered">
 								<thead>
 									<tr>
