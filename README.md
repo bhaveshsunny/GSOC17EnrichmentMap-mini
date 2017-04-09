@@ -1,3 +1,6 @@
+## Hosted using GitHub Pages
+At this [link](https://bhaveshsunny.github.io/GSOC17EnrichmentMap-mini/)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/bhaveshsunny/GSOC17EnrichmentMap-mini/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
