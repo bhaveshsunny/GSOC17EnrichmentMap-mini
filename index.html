@@ -11,10 +11,10 @@
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
 		<script src="https://unpkg.com/react@15/dist/react.js"></script>
-		<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>	
+		<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="./js/main.js"></script>
-		<script type="text/babel" >
+		<!-- <script type="text/babel" >
 			function Barplot(props) {
 				var elements = props.items;
 				var data = []
@@ -106,7 +106,7 @@ Highcharts.chart('barplot', {
             }
         }]
     }
-});	
+});
 return null;
 }
 			var TaskList = React.createClass({
@@ -114,41 +114,41 @@ return null;
 			    },
 
 			    render: function(){
-			    
+
 			        var displayTask  = function(task, taskIndex){
 			            console.log("NEW ADDED TASK"+task);
-			    
-			            return 
-			           
+
+			            return
+
 				            <tr key={taskIndex}>
 					                <td >
 					                    {taskIndex}
-					
+
 					                </td>
 					                <td>
 					                	{task}
 					                </td>
 					                <td>
 					                	<button onClick={this.props.deleteTask} value={taskIndex} href="#" className="btn btn-default">
-					                		<span className="glyphicon glyphicon-remove"></span> Remove 
+					                		<span className="glyphicon glyphicon-remove"></span> Remove
 					                	</button>
 					                </td></tr>
 			            ;
 			        };
-			    
+
 			        return <tbody>
-			            {this.props.items.map((task, taskIndex) => 
+			            {this.props.items.map((task, taskIndex) =>
 			            	<tr key={taskIndex}>
 					                <td >
 					                    {taskIndex}
-					
+
 					                </td>
 					                <td>
 					                	{task}
 					                </td>
 					                <td>
 					                	<button onClick={this.props.deleteTask} value={taskIndex} href="#" className="btn btn-default">
-					                		<span className="glyphicon glyphicon-remove"></span> Remove 
+					                		<span className="glyphicon glyphicon-remove"></span> Remove
 					                	</button>
 					                </td>
 				            	</tr>
@@ -156,7 +156,7 @@ return null;
 			        </tbody>;
 			    }
 			 });
-									
+
 			var TaskApp = React.createClass({
 			    getInitialState: function(){
 			        return {
@@ -164,7 +164,7 @@ return null;
 			             task: ''
 			        }
 			    },
-			    
+
 			    deleteTask: function(e) {
 			        var taskIndex = parseInt(e.target.value, 10);
 			        this.setState(state => {
@@ -181,19 +181,19 @@ return null;
 
 			        this.setState({
 			            items: this.state.items.concat([this.state.task]),
-			    
+
 			            task: ''
 			        })
-			    
+
 			        e.preventDefault();
 			    },
 
-			    render: function(){ 
+			    render: function(){
 
 
 
 			        return(
-			            <div>		            
+			            <div>
 			      			<form id="genelist" onSubmit={this.addTask}>
 					      	  <div className="form-group">
 							    <label htmlFor="exampleInputEmail1">Genes List</label>
@@ -201,8 +201,8 @@ return null;
 							    </input>
 							  </div>
 							  <button type="submit" className="btn btn-default">Add</button>
-					      	</form>			      
-					      	<Barplot items={this.state.items}/>	
+					      	</form>
+					      	<Barplot items={this.state.items}/>
 			      			<table className="table table-striped table-bordered">
 								<thead>
 									<tr>
@@ -213,7 +213,7 @@ return null;
 								</thead>
 								<TaskList items={this.state.items} deleteTask={this.deleteTask} />
 							</table>
-						</div>			            
+						</div>
 			        );
 			    }
 			});
@@ -231,10 +231,10 @@ return null;
 			  <EMdemo />,
 			  document.getElementById('demo')
 			);
-		</script>
+		</script> -->
 	</head>
 	<body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="margin:0;">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -248,17 +248,32 @@ return null;
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
+	      <!-- <ul class="nav navbar-nav">
 	        <li><a href="#">Home<span class="sr-only">(current)</span></a></li>
-	      </ul>
-	   
+	      </ul> -->
+
 	    </div>
 	  </div>
 	</nav>
+	<div class="SearchBar jumbotron clearfix" style="margin:0;">
+		<div class="col-md-10 col-xs-9">
+			<div class="form-group">
+				<span class="input-group">
+					<input class="form-control" placeholder="Gene name/ HNGC symbol" type="text">
+					<span class="input-group-btn">
+						<button class="btn btn-default">Search</button>
+					</span>
+				</span>
+			</div>
+		</div>
+		<div class="col-md-2 col-xs-3">
+			<div class="link">Advanced</div>
+		</div>
+	</div>
 	<div class="container-fluid">
 				    	<div  id="top">
 				      		<div id="demo" className="col-lg-4 col-md-4 col-xs-4">
-								
+
 				      		</div>
 
 					      	<div class="lcol">
@@ -266,19 +281,13 @@ return null;
 							      	<div className="col-lg-4 col-md-4 col-xs-4">
 						      		</div>
 						        	<div className="col-lg-4 col-md-4 col-xs-4" id ="barplot">
-						        	</div>					      		
+						        	</div>
 						      	</div>
 						      	<div id="plots">
-						 	      	<div style="margin-right:10px">
-							 	      		<img src="http://placehold.it/300x200&text=Cytoscape+Plot"></img>
-							      		</div>  	
-							      		<div>
-							      			<img src="http://placehold.it/300x200&text=Cluster+Plot"></img>
-							      		</div>  	  					      		
-						      	</div>		
-					      	</div>	
+						      	</div>
+					      	</div>
 				      	</div>
 
-	</div>			      	
+	</div>
 	</body>
 </html>
