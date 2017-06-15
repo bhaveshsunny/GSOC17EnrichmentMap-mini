@@ -1,0 +1,54 @@
+html {
+	height: 100%;
+	width:100%;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+#genelist {
+	margin-bottom: 10px;
+}
+
+#demo {
+	float: left;
+}
+
+#barplot {
+	float: right;
+	height:auto;
+	margin: 0 auto;
+}
+
+#top {
+	height: auto;
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+
+#plots{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+
+.lcol {
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+.link {
+	font-size: 16px;
+	line-height: 42px;
+	color: #999;
+	text-align: center;
+	cursor: pointer;
+	text-overflow: ellipsis;
+}
